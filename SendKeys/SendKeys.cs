@@ -174,7 +174,7 @@ namespace SendKeys
             public HARDWAREINPUT hi;
         }
 
-        public static void Send_Key(short Keycode, bool KeyDown)
+        public static void SendKey(short Keycode, bool KeyDown)
         {
             int flag;
 
