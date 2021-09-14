@@ -13,9 +13,9 @@ Because Unity needs a few milliseconds of a key being pressed in order to detect
 
     private static IEnumerator PressEsc()
 	{
-	  SendKeys.SendKeys.Send_Key((short)SendKeys.Keys.Esc, true);   // Send KeyDown (Escape Key)
+	  SendKeys.SendKeys.SendKey((short)SendKeys.Keys.Esc, true);   // Send KeyDown (Escape Key)
 	  yield return new WaitForSeconds(0.15f);                       // Wait for 150 milliseconds
-	  SendKeys.SendKeys.Send_Key((short)SendKeys.Keys.Esc, false);  // Send KeyUp   (Escape Key) 
+	  SendKeys.SendKeys.SendKey((short)SendKeys.Keys.Esc, false);  // Send KeyUp   (Escape Key) 
 	}
     
 ### In whatever function you want to send a KeyPress from, start a Melon Co-Routine when you want to send the KeyPress event:
