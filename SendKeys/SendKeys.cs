@@ -117,6 +117,15 @@ namespace SendKeys
         Insert      = 0x52,
         Delete      = 0x53
     }
+
+    public enum KeyboardFlag : int
+    {
+        KEYEVENTF_KEYDOWN       = 0x0000,
+        KEYEVENTF_EXTENDEDKEY   = 0x0001,
+        KEYEVENTF_KEYUP         = 0x0002,
+        KEYEVENTF_UNICODE       = 0x0004,
+        KEYEVENTF_SCANCODE      = 0x0008
+    }
     public static class SendKeys
     {
         [DllImport("user32.dll")]
@@ -165,20 +174,14 @@ namespace SendKeys
             public HARDWAREINPUT hi;
         }
 
-        const int KEYEVENTF_EXTENDEDKEY = 0x0001;
-        const int KEYEVENTF_KEYUP = 0x0002;
-        const int KEYEVENTF_UNICODE = 0x0004;
-        const int KEYEVENTF_SCANCODE = 0x0008;
-
-
         public static void Send_Key(short Keycode, bool KeyDown)
         {
             int flag;
 
             if (KeyDown)
-                flag = 0x00;
+                flag = (int)KeyboardFlag.KEYEVENTF_KEYDOWN;
             else
-                flag = 0x02;
+                flag = (int)KeyboardFlag.KEYEVENTF_KEYUP;
 
             INPUT[] InputData = new INPUT[1];
 

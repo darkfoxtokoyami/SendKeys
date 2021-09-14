@@ -45,4 +45,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>Taskkill /IM "VRChat.exe" /F 2&gt;nul
+copy "SendKeys.dll" "D:\Program Files (x86)\Steam\steamapps\common\VRChat\SendKeys.dll" /y
+start /d "D:\Program Files (x86)\Steam\steamapps\common\VRChat\" VRChat.exe</PostBuildEvent>
+  </PropertyGroup>
 </Project>
